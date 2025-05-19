@@ -12,7 +12,7 @@ const AlertSchema = new Schema<IAlert>({
     },
     default: undefined,
   },
-  parameters: { type: String, required: true },
+  parameters: { type: [String], required: true },
   conditions: {
     type: Object,
     required: true,

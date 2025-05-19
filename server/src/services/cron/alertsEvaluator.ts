@@ -62,8 +62,7 @@ export const alertsEvaluator = async (allAlerts: IAlert[]) => {
       continue;
     }
     const triggeredParams = [];
-    const params = parameters.split(',');
-    for (const parameter of params) {
+    for (const parameter of parameters) {
       const param = parameter.trim();
       const value = locationData[param];
       const condition = conditions[param.toLowerCase()];

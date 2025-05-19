@@ -21,7 +21,7 @@ export interface IAlert extends Document {
     lat: number;
     lon: number;
   };
-  parameters: string;
+  parameters: string[];
   conditions: {
     [key: string]: {
       operator: ConditionTypes;

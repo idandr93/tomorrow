@@ -24,7 +24,7 @@ export const createAlert = async (
       const thresholdValue = thr.split(match[0]);
       if (thresholdValue.length === 0) return acc;
       const numberValue = thresholdValue[1].trim();
-      if (isNaN(Number(numberValue))) {
+      if (!isNaN(Number(numberValue))) {
         acc[thresholdValue[0].trim().toLowerCase()] = {
           operator: match[0],
           value: numberValue,
