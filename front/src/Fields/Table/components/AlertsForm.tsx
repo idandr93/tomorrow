@@ -6,12 +6,22 @@ import { AlertsParameters } from './AlertsForm.utils';
 interface AlertsFormProps {
   onSubmit: (values: IAlerts) => void;
   isLoading: boolean;
+  initialValues: IAlerts | undefined;
 }
-export const AlertsForm: FC<AlertsFormProps> = ({ onSubmit, isLoading }) => {
+export const AlertsForm: FC<AlertsFormProps> = ({
+  onSubmit,
+  isLoading,
+  initialValues = {},
+}) => {
   const [form] = Form.useForm();
 
   return (
-    <Form layout="vertical" form={form} onFinish={onSubmit}>
+    <Form
+      layout="vertical"
+      form={form}
+      onFinish={onSubmit}
+      initialValues={initialValues}
+    >
       <Form.Item hidden name="_id">
         <Input />
       </Form.Item>

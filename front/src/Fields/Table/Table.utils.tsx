@@ -15,7 +15,13 @@ export const alertsColumns = [
     title: 'Parameters',
     width: 200,
     dataIndex: 'parameters',
-    render: (parameter: string) => <Tag key={parameter}>{parameter}</Tag>,
+    render: (parameters: string[]) => (
+      <>
+        {parameters.map((parameter) => (
+          <Tag key={parameter}>{parameter}</Tag>
+        ))}
+      </>
+    ),
   },
   {
     title: 'Triggered',

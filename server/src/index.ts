@@ -6,9 +6,10 @@ import job from './services/cron/alertsTrigger';
 import mongoose from 'mongoose';
 
 const app = express();
-
+const mongourl =
+  'mongodb+srv://idaninho:HPAgGVYCSaQz45NT@cluster0.9jq0du4.mongodb.net/';
 mongoose
-  .connect(process.env.MONGO_URI || '')
+  .connect(mongourl)
   .then(() => {
     job.start();
     console.log('Connected to MongoDB');

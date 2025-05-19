@@ -1,6 +1,10 @@
 import { useQuery } from 'react-query';
 import axios from 'axios';
-import { IAlerts, ICreateAlert } from '../Fields/Table/AlertsTable.types';
+import {
+  IAlerts,
+  ICreateAlert,
+  IUpdateAlert,
+} from '../Fields/Table/AlertsTable.types';
 
 const endpoint = '/api/alerts';
 const alertsEndpoint = `${
@@ -28,9 +32,21 @@ export function useAlerts() {
     refetch();
   };
 
+  const deleteAlert = async (id: string) => {
+    await axios.delete(`${alertsEndpoint}/${id}`);
+    refetch();
+  };
+
+  const updateAlert = async (values: IUpdateAlert) => {
+    await axios.put(`${alertsEndpoint}/${values._id}`, values);
+    refetch();
+  };
+
   return {
     isLoading,
     data: response?.data,
     createAlert,
+    deleteAlert,
+    updateAlert,
   };
 }

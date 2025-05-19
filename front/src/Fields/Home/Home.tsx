@@ -20,7 +20,6 @@ export const Home = () => {
     axios
       .get(`${process.env.REACT_APP_BASE_API}${path}?location=${searchTerm}`)
       .then((response) => {
-        console.log('response', response.data);
         setData(response.data);
       })
       .catch((e) => {
@@ -30,8 +29,6 @@ export const Home = () => {
       })
       .finally(() => setIsLoading(false));
   }, [searchTerm]);
-
-  console.log('errorData ', errorData);
 
   return (
     <Flex vertical>
