@@ -6,7 +6,6 @@ import job from './services/cron/alertsTrigger';
 import mongoose from 'mongoose';
 
 const app = express();
-const PORT = 4003;
 
 mongoose
   .connect(process.env.MONGODB_URI || '')
@@ -20,7 +19,7 @@ mongoose
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
     credentials: true,
   })
 );
@@ -29,6 +28,6 @@ app.use(express.json());
 app.use('/api/weather', router);
 app.use('/api/alerts', alertsRouter);
 
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+app.listen(process.env.PORT || 4003, () => {
+  console.log(`Server is running at ${process.env.PORT || 4003}`);
 });

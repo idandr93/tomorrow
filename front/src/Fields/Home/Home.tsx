@@ -5,7 +5,7 @@ import SearchBar from './components/SearchBar';
 import WeatherCard from './components/WeatherCard';
 import AlertsTable from '../Table/AlertsTable';
 
-const path = 'http://localhost:4003/api/weather';
+const path = '/api/weather';
 
 export const Home = () => {
   const [data, setData] = useState();
@@ -18,7 +18,7 @@ export const Home = () => {
     setErrorData('');
 
     axios
-      .get(`${path}?location=${searchTerm}`)
+      .get(`${process.env.BASE_API}${path}?location=${searchTerm}`)
       .then((response) => {
         console.log('response', response.data);
         setData(response.data);
