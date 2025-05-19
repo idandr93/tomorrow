@@ -18,7 +18,7 @@ export const Home = () => {
     setErrorData('');
 
     axios
-      .get(`${process.env.BASE_API}${path}?location=${searchTerm}`)
+      .get(`${process.env.REACT_APP_BASE_API}${path}?location=${searchTerm}`)
       .then((response) => {
         console.log('response', response.data);
         setData(response.data);
