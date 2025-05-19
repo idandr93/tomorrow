@@ -38,5 +38,6 @@ export interface CreateAlertRequestBody {
   parameters: string;
   name?: string;
   city?: string;
+  email?: string;
   coordinates?: string;
 }

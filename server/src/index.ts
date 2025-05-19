@@ -8,7 +8,7 @@ import mongoose from 'mongoose';
 const app = express();
 
 mongoose
-  .connect(process.env.MONGODB_URI || '')
+  .connect(process.env.MONGO_URI || '')
   .then(() => {
     job.start();
     console.log('Connected to MongoDB');

@@ -10,7 +10,7 @@ export const createAlert = async (
 ): Promise<void> => {
   try {
     const body: CreateAlertRequestBody = req.body;
-    const { city, coordinates, parameters, threshold, name } = body;
+    const { email, city, coordinates, parameters, threshold, name } = body;
 
     // basic validation
     if ((!coordinates && !city) || !parameters || !threshold) {
@@ -40,6 +40,7 @@ export const createAlert = async (
 
     const alert = new AlertsModel({
       city,
+      email,
       coordinates,
       parameters,
       conditions,
