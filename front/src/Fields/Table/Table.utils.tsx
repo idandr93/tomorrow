@@ -17,4 +17,12 @@ export const alertsColumns = [
     dataIndex: 'parameters',
     render: (parameter: string) => <Tag key={parameter}>{parameter}</Tag>,
   },
+  {
+    title: 'Triggered',
+    width: 200,
+    dataIndex: 'alertState',
+    render: (alertState: string) => (
+      <Tag key={alertState}>{alertState === 'triggered' ? 'Yes' : 'No'}</Tag>
+    ),
+  },
 ];
